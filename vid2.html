@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Test</title>
+  <style>
+    #videoElement {
+      transform: scaleX(-1);
+    }
+  </style>
+</head>
+<body>
+  <video id="videoElement" width="640" height="480" autoplay></video>
+  <button id="btnTurnOn">Turn On Camera</button>
+  <button id="btnTurnOff">Turn Off Camera</button>
+  <script>
+    const videoElement = document.getElementById('videoElement');
+    const btnTurnOn = document.getElementById('btnTurnOn');
+    const btnTurnOff = document.getElementById('btnTurnOff');
+    const constraints = {
+      audio: false,
+      video: { width: 640, height: 480 }
+    };
+    let stream;
+
+    btnTurnOn.addEventListener('click', () => {
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then((s) => {
+          stream = s;
+          videoElement.srcObject = stream;
+        });
+    });
+
+    btnTurnOff.addEventListener('click', () => {
+      stream.getTracks().forEach((track) => {
+        track.stop();
+      });
+      videoElement.srcObject = null;
+    });
+  </script>
+</body>
+</html>
