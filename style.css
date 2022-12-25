@@ -54,3 +54,14 @@ margin:10px;
 border-radius: 10px;
 }
 
+#recordingIndicator {
+  
+ font-size: 32px;
+  
+  text-align: center;
+  color: red;
+font-family: sans-serif;
+ margin-bottom: 20px;
+}
+
+

@@ -1,4 +1,4 @@
- 
+
     const videoElement = document.getElementById('videoElement');
     const btnTurnOn = document.getElementById('btnTurnOn');
     const btnTurnOff = document.getElementById('btnTurnOff');
@@ -65,4 +65,15 @@ btnStop.addEventListener('click', () => {
   downloadLink.download = 'recorded-video.webm';
   downloadLink.style.display = 'block';
 });
- 
+ const recordingIndicator = document.getElementById('recordingIndicator');
+
+btnRecord.addEventListener('click', () => {
+  // ...
+  recordingIndicator.innerHTML = 'Recording....';
+});
+
+btnStop.addEventListener('click', () => {
+  // ...
+  recordingIndicator.innerHTML = '';
+});
+
